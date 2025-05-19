@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="~width=device-width, initial-scale=1.0">
+    <title>Criar Questionário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+</head>
+<body>
+    <h1>Criar Novo Questionário</h1>
+
+    <label for="titulo">Título do Questionário:</label>
+    <input type="text" id="titulo" name="titulo" required>
+
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="descricao" rows="3" required></textarea>
+
+     <div id="questions-container"></div>
+
+    <button type="button" onclick="addQuestion()">Adicionar Questão</button>
+    <button type="submit" onclick="submitForm()">Salvar Questionário</button>
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/cadastraTarefa.js') }}"></script>
+{% endblock %}
+
+</body>
+</html>
