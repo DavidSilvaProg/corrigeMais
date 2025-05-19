@@ -7,18 +7,47 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
 </head>
 <body>
-    <h1>Criar Novo Questionário</h1>
+    <header class="top-header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" height="40">
+            </div>
 
-    <label for="titulo">Título do Questionário:</label>
-    <input type="text" id="titulo" name="titulo" required>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
-    <label for="descricao">Descrição:</label>
-    <textarea id="descricao" name="descricao" rows="3" required></textarea>
+            <nav class="menu" id="menu">
+                <a href="/">Início</a>
+                <a href="/questionarios">Questionários</a>
+                <a href="/sobre">Sobre</a>
+            </nav>
 
-     <div id="questions-container"></div>
+            <div class="login">
+                <button class="login-btn">Login</button>
+            </div>
+        </div>
+    </header>
+    <main class="conteudo">
+        <h1>Criar Novo Questionário</h1>
 
-    <button type="button" onclick="addQuestion()">Adicionar Questão</button>
-    <button type="submit" onclick="submitForm()">Salvar Questionário</button>
+        <label for="titulo">Título do Questionário:</label>
+        <input type="text" id="titulo" name="titulo" required>
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" rows="3" required></textarea>
+
+        <div id="questions-container"></div>
+
+        <label for="tipoQuestao">Tipo da Próxima Questão:</label>
+        <select id="tipoQuestao">
+            <option value="unica">Resposta Única</option>
+            <option value="multipla">Múltipla Escolha</option>
+        </select>
+
+        <button type="button" onclick="addQuestion()">Adicionar Questão</button>
+
+        <button type="submit" onclick="submitForm()">Salvar Questionário</button>
+    </main>
+
 
 {% block scripts %}
     <script src="{{ url_for('static', filename='js/cadastraTarefa.js') }}"></script>
